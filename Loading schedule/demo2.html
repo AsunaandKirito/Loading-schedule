@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>loading schedule</title>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<style type="text/css">
+		.loading{
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 100;
+		}
+		.loading .pic{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			font-size: 40px;
+			text-align: center;
+			line-height: 100px;
+		}
+		.loading .pic span{
+			display: block;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			width: 80px;
+			height: 80px;
+			border-radius:50%;
+			box-shadow: 0 4px 0 #333;
+			animation: rotate 2s infinite linear;
+		}
+		@keyframes rotate{
+			0%{transform: rotate(0deg)}
+			100%{transform: rotate(360deg)}
+		}
+	</style>
+</head>
+<body>
+<div class="loading">
+	<div class="pic">
+		<span></span>
+		<b>0%</b>
+	</div>
+</div>
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457498&di=79c0560494c5c0752cdd4e8a62d6bde5&imgtype=0&src=http%3A%2F%2Ftp.lingyu.me%2Fbz%2Fuploads%2F2016%2F08%2Fwww.lingyu.me_20160830123759344-1024x683.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457497&di=b92f3aa5f32b19ce916d284d2a245e67&imgtype=0&src=http%3A%2F%2F2t.5068.com%2Fuploads%2Fallimg%2F151103%2F57-151103145K8-52.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457497&di=9c135187b90f26285913b0ef81fc78ea&imgtype=0&src=http%3A%2F%2F2t.5068.com%2Fuploads%2Fallimg%2F151103%2F57-151103145K8.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457494&di=943e3f0bd940e6f6f4839fd7d66d9d09&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F8%2F53bc9f3678066.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457494&di=e7238af31532486b69b19b48ff76676d&imgtype=0&src=http%3A%2F%2Fimg5.web07.cn%2FUPics%2FBizhi%2F2017%2F0518%2F323163180716374.jpg">
+</body>
+<script>
+$(function(){
+	var img=$('img');
+	var num=0;
+	img.each(function(i){//将页面中出现的img的次数以i传入
+		var imgs= new Image();
+		imgs.onload=function(){
+			imgs.onload=null;
+			num++;
+			$('.loading b').html(parseInt(num/$('img').size()*100)+"%");//百分数值的变化
+			if(num>=i){
+				$(".loading").fadeOut();
+			}
+		}
+		imgs.src=img[i].src;//每张图片的地址就是imgs对象的src属性
+
+	});
+})
+</script>
+</html>

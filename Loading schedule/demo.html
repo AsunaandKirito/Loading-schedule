@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>loading schedule</title>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<style type="text/css">
+		.loading{
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 100;
+		}
+		.loading .pic{
+			width: 100px;
+			height: 50px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.loading .pic i{
+			display: block;
+			float: left;
+			margin:0 3px;
+			width: 5px;
+			height: 50px;
+			background: green;
+			transform: scaleY(0.4);
+			animation: load 1.2s infinite;
+		}
+		.loading .pic i:nth-child(1){}
+		.loading .pic i:nth-child(2){ animation-delay:0.1s  }
+		.loading .pic i:nth-child(3){ animation-delay:0.2s }
+		.loading .pic i:nth-child(4){ animation-delay: 0.3s }
+		.loading .pic i:nth-child(5){ animation-delay: 0.4s }
+		@keyframes load{
+			0%,40%,100%{transform: scaleY(0.4)}
+			20%{transform: scaleY(1)} 
+		}
+	</style>
+</head>
+<body>
+<div class="loading">
+	<div class="pic">
+		<i></i>
+		<i></i>
+		<i></i>
+		<i></i>
+		<i></i>
+	</div>
+</div>
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457498&di=79c0560494c5c0752cdd4e8a62d6bde5&imgtype=0&src=http%3A%2F%2Ftp.lingyu.me%2Fbz%2Fuploads%2F2016%2F08%2Fwww.lingyu.me_20160830123759344-1024x683.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457497&di=b92f3aa5f32b19ce916d284d2a245e67&imgtype=0&src=http%3A%2F%2F2t.5068.com%2Fuploads%2Fallimg%2F151103%2F57-151103145K8-52.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457497&di=9c135187b90f26285913b0ef81fc78ea&imgtype=0&src=http%3A%2F%2F2t.5068.com%2Fuploads%2Fallimg%2F151103%2F57-151103145K8.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457494&di=943e3f0bd940e6f6f4839fd7d66d9d09&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F8%2F53bc9f3678066.jpg">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511859457494&di=e7238af31532486b69b19b48ff76676d&imgtype=0&src=http%3A%2F%2Fimg5.web07.cn%2FUPics%2FBizhi%2F2017%2F0518%2F323163180716374.jpg">
+</body>
+<script>
+document.onreadystatechange=function(){//页面加载状态改变时的事件
+	if(document.readyState=="complete"){//返回当前文档状态1.uninitialized-还未开始载入，2.loading-载入中，3.interactive-已加载，文档与用户可以开始交互，4.complete-载入完成
+		$('.loading').fadeOut();
+	}
+}
+</script>
+</html>
